@@ -1,7 +1,7 @@
 import './style.css';
 import logo from "./logoo.png"
 import achaar from "./olive.jpg"
-
+import handPURR from "./handPURR.png"
 
 import {
     BrowserRouter as Router,
@@ -16,27 +16,25 @@ import Home from './App';
 
 const Recipes=()=>{return ( 
 <div>
-	
-
-
-
-
-
 
 
     <div>
      <section className="sub-header">
     
-                <nav>
+	 <nav>
                     <a href="index.html"><img src={logo} width="120" height="" alt="logo" /></a>
                     <div className="nav-links" id="navlinks">
                         <i className="fa fa-times"></i>
                         <ul>
+                            {/* <li><a href="index.html">Home</a></li> */}
                             <li><Link to= "/"> Home</Link></li>
                             <li><Link to="/Recipes">Recipes</Link></li>
-                            <li><a href="workshop.html">Workshops</a></li>
-                            <li><a href="about.html">About</a></li>
+                            <li><Link to="/Foodfilter">Food Filter</Link></li>
+                            {/* <li><a href="workshop.html">Workshops</a></li>
+                            <li><a href="about.html">About</a></li> */}
                             <li><Link to="/Contact">Contact</Link></li>
+                    
+
                         </ul>
                     </div>
 
@@ -57,8 +55,18 @@ const Recipes=()=>{return (
 
 <section className="recipes">
 
+	
+
+<section className="recipes">
+
+<div className= 'handpour'> 
+		<img src={handPURR}/>
+
+	</div>
+
 	<h2>Authentic recipes straight from our villages in Bangladesh. The flavors are rich and unique and there is a dish for everyone</h2>
 	
+
 	<div className="row">
 		<div className="recipes-col">
 		<img src={achaar} alt="achaar" />
@@ -103,6 +111,9 @@ const Recipes=()=>{return (
 	
 
 	
+	</section>	
+
+
 	</section>	
 
 

@@ -15,22 +15,28 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
+// import "./key";
+import { Component, useState } from 'react';
+import { useEffect } from 'react';
+import Axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import Recipes from './Recipes';
 import Contact from './Contact';
-import { Component } from 'react';
-import { useEffect } from 'react';
-
-
+import Foodfilter from './Foodfilter';
 
 
 
 const Home = () => {
+    
+
     const fetchit = () => {
         fetch("/api/hello")
             .then(res => res.json())
             .then(json => console.log(json));
     }
-    
+
   useEffect(() => {
     fetchit();
   }, []);
@@ -46,9 +52,10 @@ const Home = () => {
                             {/* <li><a href="index.html">Home</a></li> */}
                             <li><Link to= "/"> Home</Link></li>
                             <li><Link to="/Recipes">Recipes</Link></li>
-                            <li><a href="workshop.html">Workshops</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><Link to="/Contact">Contact</Link></li>
+                            <li><Link to="/Foodfilter">Food Filter</Link></li>
+                            {/* <li><a href="workshop.html">Workshops</a></li>
+                            <li><a href="about.html">About</a></li> */}
+                            <li><Link to="/Contact">Workshops</Link></li>
                     
 
                         </ul>
@@ -59,7 +66,7 @@ const Home = () => {
                 </nav>
 
                 <div className="text-box">
-                    <h1> Authentic Bangladeshi Recipes</h1>
+                    <h1 >Authentic Bangladeshi Recipes</h1>
                     <p> We are a mother-daughter duo based in NYC with the goal of sharing traditional Bangladeshi recipes with the diaspora and beyond. We love building community and connection through food by creating spaces for people of all cooking backgrounds to join and learn in a welcoming environment.</p>
                     <br />
                     <a href="workshop.html" className="workshoplink">View our Workshops </a>
@@ -161,29 +168,28 @@ const Home = () => {
 }
 
 function App() {
+
     return (
+
+
         <>
-            {/* <title>Jesminer Rannaghor</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;900&display=swap" rel="stylesheet">
-<link rel= "stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/fontawesome.min.css"> */}
 
 
             <Router>
                 <div>
-
-                    {/* A <Switch> looks through its children <Route>s and
-        renders the first one that matches the current URL. */}
                     <Routes>
                         <Route path="/Recipes" element={<Recipes />}>
+                        </Route>
 
-                        </Route>
                         <Route path="/" element={<Home />}>
-                
                         </Route>
+
                         <Route path="/Contact" element={<Contact />}>
                         </Route> 
+
+                        <Route path="/Foodfilter" element= {<Foodfilter />}>
+                        </Route>
+
                     </Routes>
                 </div>
             </Router></>
